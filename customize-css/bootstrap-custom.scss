@@ -1,0 +1,23 @@
+// Default variable overrides
+$primary: red;
+$secondary: blue;
+$danger: green;
+$altlight: #522192;
+a {
+    color: $secondary !important
+}
+
+;
+@import "../node_modules/bootstrap/scss/functions";
+// Required
+@import "../node_modules/bootstrap/scss/variables";
+$custom-theme-color: ( "primary": $primary, "secondary": $secondary, "danger": $danger, "altlight": $altlight);
+$theme-colors: map-merge($custom-theme-color, $theme-colors);
+@import "../node_modules/bootstrap/scss/bootstrap";
+// Required
+@import "../node_modules/bootstrap/scss/mixins";
+// Optional Bootstrap components here
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+// etc
