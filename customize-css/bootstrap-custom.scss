@@ -3,19 +3,24 @@ $primary: red;
 $secondary: blue;
 $danger: green;
 $altlight: #522192;
+// Custom utilities
+$utilities: ( "width": (property: width, values: (25: 25%, 50: 50%, 70: 70%, 100: 100%)));
+// Custom styles
 a {
-    color: $secondary !important
+    color: $secondary !important;
 }
 
-;
+// Import Bootstrap functions
 @import "../node_modules/bootstrap/scss/functions";
-// Required
+// Required Bootstrap imports
 @import "../node_modules/bootstrap/scss/variables";
 $custom-theme-color: ( "primary": $primary, "secondary": $secondary, "danger": $danger, "altlight": $altlight);
 $theme-colors: map-merge($custom-theme-color, $theme-colors);
+$component-prefix: sa !default;
 @import "../node_modules/bootstrap/scss/bootstrap";
-// Required
 @import "../node_modules/bootstrap/scss/mixins";
+// Custom utilities
+@import "../node_modules/bootstrap/scss/utilities";
 // Optional Bootstrap components here
 @import "../node_modules/bootstrap/scss/root";
 @import "../node_modules/bootstrap/scss/reboot";
