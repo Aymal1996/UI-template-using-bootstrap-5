@@ -1,10 +1,17 @@
+// $component-prefix: sa;
+$prefix: sleek_algo- !default;
+// Custom prefix definition
+// $custom-prefix: sa;
+// // Override Bootstrap's prefix
+// $component-prefix: $custom-prefix;
 // Default variable overrides
 $primary: red;
 $secondary: blue;
 $danger: green;
 $altlight: #522192;
+$royalPurple: purple;
 // Custom utilities
-$utilities: ( "width": (property: width, values: (25: 25%, 50: 50%, 70: 70%, 100: 100%)));
+$utilities: ( "width": ( property: width, values: ( 25: 25%, 50: 50%, 70: 70%, 100: 100%)), "spacing-top": ( property: padding, class: spacing-top, values: ( 5: 5em, 10: 10em)));
 // Custom styles
 a {
     color: $secondary !important;
@@ -14,9 +21,10 @@ a {
 @import "../node_modules/bootstrap/scss/functions";
 // Required Bootstrap imports
 @import "../node_modules/bootstrap/scss/variables";
-$custom-theme-color: ( "primary": $primary, "secondary": $secondary, "danger": $danger, "altlight": $altlight);
+$custom-theme-color: ( "primary": $primary, "secondary": $secondary, "danger": $danger, "altlight": $altlight, "royalPurple": $royalPurple);
 $theme-colors: map-merge($custom-theme-color, $theme-colors);
-$component-prefix: sa !default;
+$custom-grid-breakpoints: ( md: 800px, xxs: 300px, sms: 500px);
+$grid-breakpoints: map-merge($custom-grid-breakpoints, $grid-breakpoints);
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/bootstrap/scss/mixins";
 // Custom utilities
@@ -26,3 +34,15 @@ $component-prefix: sa !default;
 @import "../node_modules/bootstrap/scss/reboot";
 @import "../node_modules/bootstrap/scss/type";
 // etc
+// Define custom color
+$ejaz-color: #222222;
+// Generate classes with prefix "sa" for the custom color
+@each $name,
+$color in (ejaz: $ejaz-color) {
+    .#{$prefix}#{$name}-text {
+        color: $color;
+    }
+    .#{$prefix}#{$name}-bg {
+        background-color: $color;
+    }
+}
